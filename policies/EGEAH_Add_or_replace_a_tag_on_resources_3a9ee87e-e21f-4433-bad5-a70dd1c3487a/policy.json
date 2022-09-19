@@ -1,0 +1,55 @@
+{
+ "properties": {
+  "displayName": "EGEAH: Add or replace a tag on resources",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "EGEAH: Adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task. Does not modify tags on resource groups.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "b77562e9-10c8-4d90-a54f-20fd832bcab7",
+   "createdOn": "2022-09-15T09:48:57.1950773Z",
+   "updatedBy": "b77562e9-10c8-4d90-a54f-20fd832bcab7",
+   "updatedOn": "2022-09-15T09:52:33.4370192Z"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Nome da Etiqueta:",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   },
+   "tagValue": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Conteudo da Etiqueta:",
+     "description": "Value of the tag, such as 'production'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "field": "[concat('tags[', parameters('tagName'), ']')]",
+    "notEquals": "[parameters('tagValue')]"
+   },
+   "then": {
+    "effect": "modify",
+    "details": {
+     "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+     ],
+     "operations": [
+      {
+       "operation": "addOrReplace",
+       "field": "[concat('tags[', parameters('tagName'), ']')]",
+       "value": "[parameters('tagValue')]"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "id": "/subscriptions/71427cfd-7057-4cd9-b6d4-412d2384a9ca/providers/Microsoft.Authorization/policyDefinitions/3a9ee87e-e21f-4433-bad5-a70dd1c3487a",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "3a9ee87e-e21f-4433-bad5-a70dd1c3487a"
+}

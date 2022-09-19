@@ -1,0 +1,26 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "BARE-FINOPS: Automatic Tags",
+  "policyDefinitionId": "/subscriptions/71427cfd-7057-4cd9-b6d4-412d2384a9ca/providers/Microsoft.Authorization/policyDefinitions/92057952-8cdd-4b9d-824d-e26f4c1e932d",
+  "scope": "/subscriptions/71427cfd-7057-4cd9-b6d4-412d2384a9ca",
+  "notScopes": [],
+  "parameters": {},
+  "description": "São as tag´s preenchidas automaticamente.",
+  "metadata": {
+   "assignedBy": "PK Senior Analysis",
+   "parameterScopes": {},
+   "createdBy": "b77562e9-10c8-4d90-a54f-20fd832bcab7",
+   "createdOn": "2022-09-15T09:36:50.4547648Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/71427cfd-7057-4cd9-b6d4-412d2384a9ca/providers/Microsoft.Authorization/policyAssignments/c2476c5e77fb4da594f1834c",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "c2476c5e77fb4da594f1834c"
+}

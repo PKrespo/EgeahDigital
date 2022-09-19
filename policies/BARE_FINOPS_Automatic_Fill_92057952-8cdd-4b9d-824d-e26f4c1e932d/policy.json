@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "BARE FINOPS: Automatic Fill",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "(Mandatório) Todos os componentes criados no Resource Group da BARE terão os tags[Owner, costcenter, vertical] criados e preenchidos automaticamente.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "b77562e9-10c8-4d90-a54f-20fd832bcab7",
+   "createdOn": "2022-09-08T17:18:29.2899009Z",
+   "updatedBy": "b77562e9-10c8-4d90-a54f-20fd832bcab7",
+   "updatedOn": "2022-09-15T09:29:33.4170791Z"
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "tags[owner]",
+      "exists": "false"
+     },
+     {
+      "field": "tags[costcenter]",
+      "exists": "false"
+     },
+     {
+      "field": "tags[vertical]",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "append",
+    "details": [
+     {
+      "field": "tags[owner]",
+      "value": "IT Management"
+     },
+     {
+      "field": "tags[costcenter]",
+      "value": "1111"
+     },
+     {
+      "field": "tags[vertical]",
+      "value": "bare"
+     }
+    ]
+   }
+  }
+ },
+ "id": "/subscriptions/71427cfd-7057-4cd9-b6d4-412d2384a9ca/providers/Microsoft.Authorization/policyDefinitions/92057952-8cdd-4b9d-824d-e26f4c1e932d",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "92057952-8cdd-4b9d-824d-e26f4c1e932d"
+}
